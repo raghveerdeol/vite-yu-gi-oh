@@ -15,15 +15,21 @@ props: {
 </script>
 
 <template>
-<div class="card col-3 border-5 border-light" style="width: 18rem;">
+<div class="card border-5 border-light my-2">
     <img :src="singleCard.card_images[0].image_url" class="card-img-top" alt="...">
     <div class="card-body">
-        <h5 class="card-title">{{ singleCard.name }}</h5>
+        <h5 class="card-title">{{ singleCard.name}}</h5>
         <p class="card-text">{{ singleCard.archetype }}</p>
     </div>
 </div>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    div.card{
+        width: calc((100% / 5) - 1rem);
+        background-color: #d48f38;
+        &:hover{
+            background-color: rgba(0, 0, 0, .5);
+        }
+    }
 </style>

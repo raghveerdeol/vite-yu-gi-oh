@@ -38,7 +38,7 @@ created(){
 </script>
 
 <template>
-    <main class="p-3">
+    <main >
         <MainSelect/>
         <MainCardList/>
     </main>

@@ -9,7 +9,7 @@ return {
 </script>
 
 <template>
-    <div class="scelta mt-5">
+    <div class="scelta">
         <select class="px-5 py-2 bg-light border-0 rounded-3">
             <option value="0" selected>
                 alien
@@ -18,9 +18,10 @@ return {
     </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .scelta{
-    position: relative;
-    left: 120px;
+    margin: 0 auto;
+    width: 75%;
+    padding: 1rem 0;
 }
 </style>

@@ -15,11 +15,15 @@ return {
 </script>
 
 <template>
-    <div class="w-100 d-flex flex-wrap border-5 m-5">
+    <div class="d-flex flex-wrap border-5 justify-content-between">
         <MainSingleCard v-for="(card, index) in store.cardsList" :key="index" :single-card="card"/>
     </div>
 </template>
 
-<style scoped>
-
+<style lang="scss" scoped>
+    div{
+        background-color: white;
+        width: 70%;
+        margin: 0 auto;
+    }
 </style>
