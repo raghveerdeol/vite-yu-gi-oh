@@ -15,8 +15,8 @@ return {
 }
 },
 methods: {
-    getCardsList(){
-        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0')
+    getCardsList(typeToSearch){
+        axios.get('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=20&offset=0&archetype='+ typeToSearch)
         .then((response) => {
                 // handle success
                 console.log(response.data.data);
@@ -34,7 +34,7 @@ methods: {
         axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
         .then((response) => {
                 // handle success
-                console.log(response.data);
+                console.log(response);
                 this.store.archeTypeList = response.data;
             })
             .catch(function (error) {
@@ -44,6 +44,11 @@ methods: {
             .finally(function () {
                 // always executed
             });
+    },
+    searchCard(type){
+        console.log("selected!!");
+        console.log(type);
+        this.getCardsList(type)
     }
 },
 created(){
@@ -55,7 +60,7 @@ created(){
 
 <template>
     <main >
-        <MainSelect/>
+        <MainSelect @selected="searchCard"/>
         <MainCardList/>
     </main>
 </template>
