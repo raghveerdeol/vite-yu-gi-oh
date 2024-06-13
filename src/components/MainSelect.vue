@@ -1,19 +1,23 @@
 <script>
-export default {
-data() {
-return {
+import { store } from '../store.js';
+import SelectOptionType from './SelectOptionType.vue'
 
-}
-}
+export default {
+    components: {
+        SelectOptionType,
+    },
+    data() {
+    return {
+        store,
+    }
+    }
 }
 </script>
 
 <template>
     <div class="scelta">
         <select class="px-5 py-2 bg-light border-0 rounded-3">
-            <option value="0" selected>
-                alien
-            </option>
+            <SelectOptionType v-for="(type, index) in store.archeTypeList" :key="index" :arche-type="type"/>
         </select>
     </div>
 </template>

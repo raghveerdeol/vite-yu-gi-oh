@@ -28,6 +28,7 @@ props: {
     div.card{
         width: calc((100% / 5) - 1rem);
         background-color: #d48f38;
+        text-align: center;
         &:hover{
             background-color: rgba(0, 0, 0, .5);
         }

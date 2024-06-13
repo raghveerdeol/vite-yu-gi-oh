@@ -29,10 +29,26 @@ methods: {
             .finally(function () {
                 // always executed
             });
+    },
+    getArchetype(){
+        axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+        .then((response) => {
+                // handle success
+                console.log(response.data);
+                this.store.archeTypeList = response.data;
+            })
+            .catch(function (error) {
+                // handle error
+                console.log(error);
+            })
+            .finally(function () {
+                // always executed
+            });
     }
 },
 created(){
     this.getCardsList();
+    this.getArchetype();
 }
 }
 </script>
