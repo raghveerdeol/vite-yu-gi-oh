@@ -1,11 +1,7 @@
 <script>
 import { store } from '../store.js';
-import SelectOptionType from './SelectOptionType.vue'
 
 export default {
-    components: {
-        SelectOptionType,
-    },
     data() {
     return {
         store,

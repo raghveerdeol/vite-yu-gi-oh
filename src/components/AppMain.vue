@@ -1,6 +1,7 @@
 <script>
 import MainSelect from './MainSelect.vue';
 import MainCardList from './MainCardList.vue';
+import MainLoader from './MainLoader.vue';
 import axios from 'axios';
 import { store } from '../store.js';
 
@@ -8,10 +9,12 @@ export default {
     components: {
         MainSelect,
         MainCardList,
+        MainLoader,
     },
 data() {
 return {
         store,
+        isLoading: false,
 }
 },
 methods: {
@@ -29,6 +32,11 @@ methods: {
             .finally(function () {
                 // always executed
             });
+    },
+    load2Sec(){
+        setTimeout(() =>{
+            this.isLoading = false;
+        }, 2000)
     },
     getArchetype(){
         axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
@@ -49,11 +57,14 @@ methods: {
         console.log("selected!!");
         console.log(type);
         this.getCardsList(type)
+        this.isLoading = true;
+        this.load2Sec();
     }
 },
 created(){
     this.getCardsList();
     this.getArchetype();
+    // this.load2Sec();
 }
 }
 </script>
@@ -61,7 +72,8 @@ created(){
 <template>
     <main >
         <MainSelect @selected="searchCard"/>
-        <MainCardList/>
+        <MainCardList v-if="isLoading === false"/>
+        <MainLoader v-else/>
     </main>
 </template>
 
